@@ -1183,7 +1183,7 @@ const FinalCTA = () => {
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]" />
 
       {/* Header do Conteúdo */}
-      <div className="max-w-4xl w-full text-center z-10 mb-16">
+      <div className="max-w-4xl w-full text-center z-10 mb-8">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -1204,7 +1204,7 @@ const FinalCTA = () => {
       </div>
 
       {/* Galeria de Fotos Interativa */}
-      <div className="relative w-full h-[450px] flex items-center justify-center mb-16">
+      <div className="relative w-full h-[300px] flex items-center justify-center mb-16">
         <div className="relative w-full max-w-7xl flex justify-center">
           <AnimatePresence>
             {photos.map((photo) => (
@@ -1263,17 +1263,17 @@ const FinalCTA = () => {
 
 // Footer
 const Footer = () => (
-  <footer className="bg-gray-900 py-16 border-t border-gray-800 text-white">
+  <footer className="bg-white py-16 border-t border-gray-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-white/10 rounded-lg">
-             <Heart className="h-6 w-6 text-brand-gold fill-brand-gold" />
+          <div className="p-2 bg-brand-blue/10 rounded-lg">
+             <Heart className="h-6 w-6 text-brand-blue fill-brand-blue" />
           </div>
-          <span className="font-serif font-bold text-2xl text-white tracking-tight">Bênçãos Familiares</span>
+          <span className="font-serif font-bold text-2xl text-brand-dark tracking-tight">Bênçãos Familiares</span>
         </div>
         <div className="flex flex-col md:flex-row gap-8 items-center">
-          <a href="mailto:contato@bencaosfamiliares.com.br" className="text-gray-400 hover:text-white transition-colors text-sm font-medium flex items-center gap-2">
+          <a href="mailto:contato@bencaosfamiliares.com.br" className="text-gray-500 hover:text-brand-blue transition-colors text-sm font-medium flex items-center gap-2">
             <Mail size={16} /> Suporte: contato@bencaosfamiliares.com.br
           </a>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
@@ -1282,11 +1282,11 @@ const Footer = () => (
         </div>
       </div>
       
-      <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+      <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 font-medium">
         <p>© 2025 Bênçãos Familiares</p>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a>
-          <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
+          <a href="#" className="hover:text-brand-blue transition-colors">Política de Privacidade</a>
+          <a href="#" className="hover:text-brand-blue transition-colors">Termos de Uso</a>
         </div>
       </div>
     </div>
