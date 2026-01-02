@@ -165,7 +165,7 @@ const ScrollingMockup = ({ src, className = "" }: { src: string, className?: str
             y: ["0%", "-50%"]
           }}
           transition={{
-            duration: 15,
+            duration: 25,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop"
