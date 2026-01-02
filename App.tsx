@@ -162,21 +162,25 @@ const ScrollingMockup = ({ src, className = "" }: { src: string, className?: str
         {/* Scrolling Content */}
         <motion.div
           animate={{
-            y: ["0%", "-85%", "-85%"],
-            opacity: [1, 1, 0]
+            y: ["0%", "-50%"]
           }}
           transition={{
-            duration: 25,
-            times: [0, 0.9, 1],
-            ease: "easeInOut",
+            duration: 15,
+            ease: "linear",
             repeat: Infinity,
-            repeatDelay: 2
+            repeatType: "loop"
           }}
           className="w-full"
         >
           <img
             src={src}
             alt="App Interface"
+            className="w-full h-auto block"
+          />
+          {/* Duplicated image for seamless loop */}
+          <img
+            src={src}
+            alt="App Interface Duplicate"
             className="w-full h-auto block"
           />
         </motion.div>
@@ -360,9 +364,9 @@ const Hero = () => {
   return (
     <div className="min-h-screen pt-16 pb-16 bg-gradient-to-b from-brand-blueLight/30 to-white relative overflow-hidden flex flex-col items-center">
 
-      {/* Background Rings - Original Style */}
-      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-blue/5 rounded-full pointer-events-none animate-pulse-slow"></div>
-      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-brand-blue/5 rounded-full pointer-events-none"></div>
+      {/* Background Rings - Figma Refined */}
+      <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-brand-blue/10 rounded-full pointer-events-none bg-brand-blue/5"></div>
+      <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-brand-blue/5 rounded-full pointer-events-none"></div>
 
       {/* Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
@@ -398,59 +402,75 @@ const Hero = () => {
         <div className="relative w-full max-w-5xl mx-auto h-full md:h-[600px] flex justify-center perspective">
 
           {/* Center Phone */}
-          <FadeIn delay={600} className="relative z-20 transform translate-y-10 md:translate-y-0">
-            <ScrollingMockup src="/imagens/img_home.jpg" />
+          <FadeIn delay={600} className="relative z-20">
+            <ScrollingMockup src="/imagens/img_home.jpg" className="shadow-2xl shadow-brand-blue/20" />
           </FadeIn>
 
-          {/* Floating Element 1: Audio Player */}
-          <div className="hidden md:block absolute top-20 left-0 lg:left-10 z-30 animate-float" style={{ animationDelay: '0s' }}>
+          {/* Figma Floating Element 1: Bible Image (Top Left) */}
+          <div className="hidden lg:block absolute -top-4 -left-20 z-30 animate-float" style={{ animationDelay: '0s' }}>
             <FadeIn delay={800}>
-              <div className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 flex items-center gap-4 max-w-[260px] hover:scale-105 transition-transform">
-                <div className="w-12 h-12 rounded-full bg-brand-blueLight flex items-center justify-center text-brand-blue shadow-inner">
-                  <Play size={20} fill="currentColor" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="h-6 w-full flex items-center gap-0.5">
-                    {[...Array(12)].map((_, i) => (
-                      <div key={i} className={`w-1 rounded-full bg-brand-blue ${i % 2 === 0 ? 'h-3' : 'h-6'}`} style={{ opacity: Math.random() * 0.5 + 0.5 }}></div>
-                    ))}
-                  </div>
-                </div>
+              <div className="bg-white p-1 rounded-2xl shadow-xl border border-white/50 overflow-hidden w-[165px] h-[155px]">
+                <img 
+                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=300&auto=format&fit=crop" 
+                  alt="Bible" 
+                  className="w-full h-full object-cover rounded-xl"
+                />
               </div>
             </FadeIn>
           </div>
 
-          {/* Floating Element 2: Security */}
-          <div className="hidden md:block absolute top-32 right-0 lg:right-10 z-20 animate-float" style={{ animationDelay: '1.5s' }}>
+          {/* Figma Floating Element 2: +365 Blessings (Bottom Left) */}
+          <div className="hidden lg:block absolute bottom-0 -left-32 z-30 animate-float" style={{ animationDelay: '1s' }}>
+            <FadeIn delay={900}>
+              <div className="bg-[#FFD84D] px-6 py-4 rounded-2xl shadow-2xl border border-yellow-300 min-w-[200px] text-center transform -rotate-3 hover:rotate-0 transition-transform">
+                <span className="text-4xl font-serif font-black text-[#111827] block mb-1 tracking-tighter">+365</span>
+                <span className="text-[14px] font-bold text-[#111827] uppercase tracking-[0.1em] opacity-80">Bençãos únicas</span>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Figma Floating Element 3: Stars (Above +365) */}
+          <div className="hidden lg:block absolute bottom-28 -left-10 z-40 animate-float" style={{ animationDelay: '2s' }}>
             <FadeIn delay={1000}>
-              <div className="bg-[#E8F5E9] p-5 rounded-2xl shadow-lg border border-green-100 max-w-[220px] hover:translate-y-[-5px] transition-transform">
-                <div className="flex items-center gap-2 mb-2">
-                  <Lock size={18} className="text-green-600" />
-                  <span className="text-xs font-bold text-green-700 uppercase">Seguro</span>
+              <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-white/50 flex gap-1 items-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={14} className="text-brand-gold fill-brand-gold" />
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Figma Floating Element 4: 12 Days Streak (Top Right) */}
+          <div className="hidden lg:block absolute top-10 -right-20 z-30 animate-float" style={{ animationDelay: '0.5s' }}>
+            <FadeIn delay={1100}>
+              <div className="bg-white p-6 rounded-2xl shadow-2xl border border-gray-100 min-w-[190px] text-center hover:scale-105 transition-transform">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orange-50 mb-3 shadow-inner">
+                  <Flame size={24} className="text-orange-500 fill-orange-500" />
                 </div>
-                <p className="text-sm font-medium text-gray-700 leading-tight">
-                  Conteúdo <span className="bg-green-200/50 px-1 rounded font-bold text-green-800">100% bíblico</span>
+                <p className="text-4xl font-black text-gray-800 font-serif mb-1 tracking-tight">12 dias</p>
+                <p className="text-[12px] text-gray-400 font-bold uppercase tracking-[0.2em]">Sequência</p>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Figma Floating Element 5: Sacred Word (Bottom Right) */}
+          <div className="hidden lg:block absolute bottom-12 -right-32 z-30 animate-float" style={{ animationDelay: '1.5s' }}>
+            <FadeIn delay={1200}>
+              <div className="bg-[#EBF9EE] px-6 py-4 rounded-[1.5rem] shadow-xl border border-green-100/50 flex flex-col items-center hover:translate-y-[-5px] transition-transform">
+                <div className="flex items-center gap-2 mb-2">
+                  <Lock size={16} className="text-[#1A8245]" />
+                  <span className="text-[11px] font-black text-[#1A8245] uppercase tracking-[0.1em]">Palavra Sagrada</span>
+                </div>
+                <p className="text-sm font-bold text-[#111827]">
+                  Conteúdo <span className="text-[#1A8245]">100% bíblico</span>
                 </p>
               </div>
             </FadeIn>
           </div>
 
-          {/* Floating Element 3: Stats */}
-          <div className="hidden md:block absolute bottom-32 right-10 lg:right-24 z-30 animate-float" style={{ animationDelay: '3s' }}>
-            <FadeIn delay={1100}>
-              <div className="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 min-w-[180px] text-center hover:scale-105 transition-transform">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-50 mb-2">
-                  <Flame size={20} className="text-orange-500 fill-orange-500" />
-                </div>
-                <p className="text-3xl font-bold text-gray-800 font-serif">12 dias</p>
-                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Sequência</p>
-              </div>
-            </FadeIn>
-          </div>
-
           {/* Mobile Only: Simple Floating Label */}
-          <div className="md:hidden absolute top-20 right-4 z-30 animate-bounce">
-            <div className="bg-brand-gold text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+          <div className="md:hidden absolute -top-10 -right-4 z-30 animate-bounce">
+            <div className="bg-brand-gold text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
               Oferta Vitalícia
             </div>
           </div>
