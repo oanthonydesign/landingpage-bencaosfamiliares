@@ -151,92 +151,46 @@ const StickyMobileCTA = () => {
 };
 
 // Mockup of the App Phone Screen
-const PhoneMockup = ({ className = "" }: { className?: string }) => (
-  <div className={`relative mx-auto border-gray-900 bg-gray-900 border-[8px] rounded-[3rem] h-[580px] w-[300px] shadow-2xl flex flex-col overflow-hidden transform transition-transform duration-700 hover:scale-[1.01] ${className}`}>
-    {/* Dynamic Island / Notch */}
-    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-20"></div>
+const ScrollingMockup = ({ className = "" }: { className?: string }) => {
+  return (
+    <div className={`relative mx-auto border-gray-900 bg-gray-900 border-[8px] rounded-[3rem] h-[580px] w-[300px] shadow-2xl flex flex-col overflow-hidden transform transition-transform duration-700 hover:scale-[1.01] ${className}`}>
+      {/* Dynamic Island / Notch */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-40"></div>
 
-    <div className="rounded-[2.5rem] overflow-hidden w-full h-full bg-white relative">
-      {/* Status Bar */}
-      <div className="h-10 bg-brand-bgAlt w-full flex justify-between items-center px-6 pt-2 text-[10px] text-gray-500 font-bold">
-        <span>9:41</span>
-        <div className="flex gap-1">
-          <div className="w-4 h-3 bg-gray-300 rounded-sm"></div>
-          <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
-        </div>
-      </div>
+      {/* Screen Area */}
+      <div className="relative w-full h-full bg-white rounded-[2rem] overflow-hidden">
+        {/* Scrolling Content */}
+        <motion.div
+          animate={{
+            y: ["0%", "-50%"]
+          }}
+          transition={{
+            duration: 15,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop"
+          }}
+          className="w-full"
+        >
+          <img
+            src="/imagens/img_home.jpg"
+            alt="App Home"
+            className="w-full h-auto block"
+          />
+          {/* Duplicated image for seamless loop */}
+          <img
+            src="/imagens/img_home.jpg"
+            alt="App Home Duplicate"
+            className="w-full h-auto block"
+          />
+        </motion.div>
 
-      {/* App Content */}
-      <div className="p-5 flex flex-col h-full overflow-hidden relative">
-        {/* Header App */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex flex-col">
-            <span className="text-xs text-gray-500 font-medium">Bom dia,</span>
-            <span className="text-brand-dark font-bold text-lg">Mamãe</span>
-          </div>
-          <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center border border-gray-200">
-            <Users size={16} className="text-gray-400" />
-          </div>
-        </div>
-
-        {/* Main Card */}
-        <div className="space-y-4 relative z-10">
-          <div className="bg-brand-blueLight p-5 rounded-2xl border border-brand-blue/20 shadow-sm">
-            <div className="flex justify-between items-start mb-2">
-              <span className="bg-white/60 text-brand-blue text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Hoje</span>
-              <Heart size={16} className="text-brand-blue fill-brand-blue/20" />
-            </div>
-            <h4 className="text-brand-dark font-bold text-xl mb-1 font-serif">Davi</h4>
-            <p className="text-xs text-gray-500 mb-4">7 anos • Bênção da Coragem</p>
-
-            <div className="bg-white p-3 rounded-xl flex items-center gap-3 shadow-sm border border-brand-blue/10">
-              <div className="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center text-white pl-0.5">
-                <Play size={12} fill="currentColor" />
-              </div>
-              <div className="flex-1">
-                <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-                  <div className="h-full w-1/3 bg-brand-blue"></div>
-                </div>
-                <div className="flex justify-between mt-1">
-                  <span className="text-[8px] text-gray-400">0:42</span>
-                  <span className="text-[8px] text-gray-400">2:15</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Verse Card */}
-          <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-16 h-16 bg-brand-gold/10 rounded-bl-full -mr-4 -mt-4"></div>
-            <h5 className="font-bold text-gray-800 mb-2 text-sm">Versículo Base</h5>
-            <p className="text-xs text-gray-500 leading-relaxed italic">
-              "Não fui eu que ordenei a você? Seja forte e corajoso..."
-              <br /><span className="font-semibold not-italic text-brand-blue mt-1 block">- Josué 1:9</span>
-            </p>
-          </div>
-
-          {/* List */}
-          <div className="space-y-2 pt-2">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Histórico</p>
-            <div className="bg-brand-bgAlt p-3 rounded-xl flex items-center gap-3 border border-gray-100">
-              <div className="bg-green-100 text-green-600 w-8 h-8 rounded-full flex items-center justify-center">
-                <Check size={14} />
-              </div>
-              <div className="flex-1">
-                <p className="text-xs font-bold text-gray-700">Ontem</p>
-                <p className="text-[10px] text-gray-500">Bênção da Sabedoria</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Background gradient in app */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
-        <div className="mt-auto mb-8 mx-auto w-1/3 h-1 bg-gray-300 rounded-full"></div>
+        {/* Glass Overlay for depth */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/10 to-transparent z-30"></div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Button Component
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -655,7 +609,7 @@ const Solution = () => {
           <div className="order-1 md:order-2 flex justify-center relative">
             <div className="absolute inset-0 bg-brand-blue/5 rounded-full blur-[80px] transform scale-75"></div>
             <FadeIn delay={300} className="transform md:rotate-3 transition-transform hover:rotate-0 duration-700">
-              <PhoneMockup className="shadow-2xl shadow-brand-blue/20" />
+              <ScrollingMockup className="shadow-2xl shadow-brand-blue/20" />
             </FadeIn>
           </div>
 
