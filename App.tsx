@@ -643,6 +643,12 @@ const Solution = () => {
                 </p>
               </div>
             </FadeIn>
+
+            <FadeIn delay={600} className="mt-12 text-center md:text-left">
+              <Button href="#oferta" isCustom hidePriceOnHover className="shadow-2xl shadow-[#27AE60]/40">
+                Comece a abençoar seu filho hoje!
+              </Button>
+            </FadeIn>
           </div>
 
           {/* Right: Visual */}
@@ -777,6 +783,11 @@ const SocialProof = () => {
             </FadeIn>
           ))}
         </div>
+        <FadeIn delay={600} className="mt-16 text-center">
+          <Button href="#oferta" isCustom hidePriceOnHover className="shadow-2xl shadow-[#27AE60]/40">
+            Comece a abençoar seu filho hoje!
+          </Button>
+        </FadeIn>
       </div>
     </section>
   );
