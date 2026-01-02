@@ -399,10 +399,10 @@ const Hero = () => {
         {/* Visual Section with Floating Elements */}
         <div className="relative w-full max-w-6xl mx-auto h-[500px] md:h-[550px] flex justify-center perspective overflow-hidden">
 
-          {/* Background Rings - Centered behind phone */}
-          <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-brand-blue/10 rounded-full pointer-events-none bg-brand-blue/5 z-0"></div>
-          <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-brand-blue/5 rounded-full pointer-events-none z-0"></div>
-          <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px] h-[1300px] border border-brand-blue/[0.02] rounded-full pointer-events-none z-0"></div>
+          {/* Background Rings - Centered exactly at the bottom midpoint */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-brand-blue/10 rounded-full pointer-events-none bg-brand-blue/5 z-0"></div>
+          <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-brand-blue/5 rounded-full pointer-events-none z-0"></div>
+          <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px] h-[1300px] border border-brand-blue/[0.02] rounded-full pointer-events-none z-0"></div>
 
           {/* Centered Phone (Cutoff at bottom) */}
           <div className="relative z-20 transform translate-y-24">
