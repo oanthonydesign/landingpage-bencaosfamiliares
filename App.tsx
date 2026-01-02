@@ -239,8 +239,8 @@ const Button: React.FC<ButtonProps> = ({
         <div className="shiny-effect"></div>
 
         {/* Texto Inicial */}
-        <div className="pl-4 md:pl-6 pr-14 opacity-100 group-hover:opacity-0 transition-all duration-200 delay-200 group-hover:delay-0 z-0">
-          <span className="text-white text-base md:text-lg font-bold tracking-tight break-words">
+        <div className="pl-6 pr-14 opacity-100 group-hover:opacity-0 transition-all duration-200 delay-200 group-hover:delay-0 z-0">
+          <span className="text-white text-lg font-bold tracking-tight whitespace-nowrap">
             {children}
           </span>
         </div>
@@ -264,7 +264,7 @@ const Button: React.FC<ButtonProps> = ({
       </>
     );
 
-    const customClasses = `btn-custom relative group inline-flex items-center min-w-[200px] w-full md:w-fit min-h-[3.5rem] py-2 bg-[#27AE60] rounded-2xl p-1 transition-all duration-300 overflow-hidden shadow-xl shadow-[#27AE60]/20 border-2 border-transparent hover:border-white/50 ${className}`;
+    const customClasses = `btn-custom relative group inline-flex items-center min-w-[240px] w-fit h-14 bg-[#27AE60] rounded-2xl p-1 transition-all duration-300 overflow-hidden shadow-xl shadow-[#27AE60]/20 border-2 border-transparent hover:border-white/50 ${widthClass} ${className}`;
 
     if (href) {
       return (
@@ -606,35 +606,35 @@ const Solution = () => {
               <div className="inline-block bg-brand-blue/10 text-brand-blue font-bold px-3 py-1 rounded-full text-xs uppercase tracking-widest mb-4">
                 O altar digital
               </div>
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-brand-dark mb-6">
-                Conheça a plataforma <br className="hidden md:block" />Bênçãos Familiares
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">
+                Conheça a plataforma <br />Bênçãos Familiares
               </h2>
-              <p className="text-base md:text-lg text-gray-600 mb-8 md:mb-12 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-12 leading-relaxed">
                 Bênçãos Familiares uma plataforma completa que te entrega uma bênção personalizada por dia, com o nome e idade do seu filho, base bíblica, reflexão e oração guiada.
               </p>
             </FadeIn>
 
-            <div className="space-y-8 md:space-y-10">
+            <div className="space-y-10">
               {[
                 { step: "01", title: "Acesse a plataforma", desc: "(em menos de 10 segundos)" },
                 { step: "02", title: "Receba a bênção do dia", desc: "Personalizada baseada na idade e nome do seu filho" },
                 { step: "03", title: "Declara a oração guiada", desc: "Leia em voz alta e declare essas palavras a seu filho" }
               ].map((item, idx) => (
-                <FadeIn key={idx} delay={idx * 150} className="flex gap-4 md:gap-6 items-start group">
-                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center text-brand-dark font-serif font-bold text-lg md:text-xl shadow-sm group-hover:border-brand-blue group-hover:text-brand-blue transition-colors duration-300">
+                <FadeIn key={idx} delay={idx * 150} className="flex gap-6 items-start group">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center text-brand-dark font-serif font-bold text-xl shadow-sm group-hover:border-brand-blue group-hover:text-brand-blue transition-colors duration-300">
                     {item.step}
                   </div>
-                  <div className="pt-1.5 md:pt-2">
-                    <h3 className="text-lg md:text-xl font-bold text-brand-dark leading-tight">{item.title}</h3>
-                    {item.desc && <p className="text-gray-600 text-sm mt-1 leading-snug">{item.desc}</p>}
+                  <div className="pt-2">
+                    <h3 className="text-xl font-bold text-brand-dark">{item.title}</h3>
+                    {item.desc && <p className="text-gray-600 text-sm mt-1">{item.desc}</p>}
                   </div>
                 </FadeIn>
               ))}
             </div>
 
-            <FadeIn delay={500} className="mt-8 md:mt-12">
-              <div className="bg-brand-gold/10 border-l-4 border-brand-gold p-5 md:p-6 rounded-r-xl">
-                <p className="text-lg md:text-xl text-brand-dark font-serif font-medium italic leading-relaxed">
+            <FadeIn delay={500} className="mt-12">
+              <div className="bg-brand-gold/10 border-l-4 border-brand-gold p-6 rounded-r-xl">
+                <p className="text-xl text-brand-dark font-serif font-medium italic">
                   "Pronto em 2 minutos você plantou fé, paz e direção no coração dele."
                 </p>
               </div>
@@ -1196,7 +1196,7 @@ const FinalCTA = () => {
       y: "-20px",
       zIndex: 25,
       direction: "left" as const,
-      src: "https://images.pexels.com/photos/4262413/pexels-photo-4262413.jpeg?auto=compress&cs=tinysrgb&w=600",
+      src: "/imagens/card01.webp",
     },
     {
       id: 2,
@@ -1205,7 +1205,7 @@ const FinalCTA = () => {
       y: "-50px",
       zIndex: 24,
       direction: "right" as const,
-      src: "https://images.pexels.com/photos/4262424/pexels-photo-4262424.jpeg?auto=compress&cs=tinysrgb&w=600",
+      src: "/imagens/card02.webp",
     },
     {
       id: 3,
@@ -1214,7 +1214,7 @@ const FinalCTA = () => {
       y: "-15px",
       zIndex: 23,
       direction: "left" as const,
-      src: "https://images.pexels.com/photos/3905891/pexels-photo-3905891.jpeg?auto=compress&cs=tinysrgb&w=600",
+      src: "/imagens/card03.webp",
     },
     {
       id: 4,
@@ -1223,7 +1223,7 @@ const FinalCTA = () => {
       y: "-45px",
       zIndex: 22,
       direction: "right" as const,
-      src: "https://images.pexels.com/photos/3905710/pexels-photo-3905710.jpeg?auto=compress&cs=tinysrgb&w=600",
+      src: "/imagens/card04.webp",
     },
     {
       id: 5,
@@ -1232,7 +1232,7 @@ const FinalCTA = () => {
       y: "0px",
       zIndex: 21,
       direction: "left" as const,
-      src: "https://images.pexels.com/photos/4261066/pexels-photo-4261066.jpeg?auto=compress&cs=tinysrgb&w=600",
+      src: "/imagens/card05.webp",
     },
   ];
 
