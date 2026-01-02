@@ -572,7 +572,7 @@ const PainPoints = () => {
             <FadeIn delay={300} className="w-full h-full">
               <div className="relative w-full aspect-square md:aspect-auto md:h-full min-h-[300px] md:min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1616530664971-55c83bc5d58f?q=80&w=2070&auto=format&fit=crop"
+                  src="/imagens/mae-sentimento.webp"
                   alt="Mãe olhando o celular com filho dormindo ao fundo"
                   className="w-full h-full object-cover"
                 />
@@ -1302,7 +1302,7 @@ const FinalCTA = () => {
       </div>
 
       {/* CTA Final */}
-      <div className="z-20 text-center w-full max-w-xl">
+      <div className="z-20 text-center max-w-xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
