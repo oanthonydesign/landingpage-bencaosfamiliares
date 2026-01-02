@@ -407,7 +407,7 @@ const Hero = () => {
           {/* Centered Phone (Cutoff at bottom) */}
           <div className="relative z-20 transform translate-y-24">
             <FadeIn delay={600}>
-              <ScrollingMockup src="/imagens/img_home.jpg" className="shadow-2xl shadow-brand-blue/20" />
+              <ScrollingMockup src="/imagens/img_home.webp" className="shadow-2xl shadow-brand-blue/20" />
             </FadeIn>
           </div>
 
@@ -651,7 +651,7 @@ const Solution = () => {
           <div className="order-1 md:order-2 flex justify-center relative">
             <div className="absolute inset-0 bg-brand-blue/5 rounded-full blur-[80px] transform scale-75"></div>
             <FadeIn delay={300} className="transform md:rotate-3 transition-transform hover:rotate-0 duration-700">
-              <ScrollingMockup src="/imagens/img_conheca.jpg" className="shadow-2xl shadow-brand-blue/20" />
+              <ScrollingMockup src="/imagens/img_conheca.webp" className="shadow-2xl shadow-brand-blue/20" />
             </FadeIn>
           </div>
 
