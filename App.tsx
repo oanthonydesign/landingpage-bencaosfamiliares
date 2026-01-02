@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
-import { 
-  Menu, X, Heart, Clock, Shield, Star, CheckCircle2, 
+import {
+  Menu, X, Heart, Clock, Shield, Star, CheckCircle2,
   ArrowRight, Sparkles, BookOpen, Users, Sun, ChevronDown, Check, Lock,
   Play, Pause, Flame, CreditCard, XCircle, Plus, Minus, HelpCircle, Gift, Mail,
   Moon, Target, Brain, Activity, Map, TrendingUp, Infinity, RefreshCw, Calendar,
-  ShieldCheck, Zap 
+  ShieldCheck, Zap
 } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -20,9 +20,9 @@ function getRandomNumberInRange(min: number, max: number) {
 }
 
 // Componente Photo (Novo)
-const Photo = ({ src, alt, className, direction = "left", width = 220, height = 220 }: { src: string, alt: string, className?: string, direction?: "left"|"right", width?: number, height?: number }) => {
+const Photo = ({ src, alt, className, direction = "left", width = 220, height = 220 }: { src: string, alt: string, className?: string, direction?: "left" | "right", width?: number, height?: number }) => {
   const [rotation, setRotation] = useState(0);
-  
+
   useEffect(() => {
     // Define uma rotação inicial orgânica
     const randomRotation = getRandomNumberInRange(1, 6) * (direction === "left" ? -1 : 1);
@@ -111,9 +111,9 @@ const useOnScreen = (ref: React.RefObject<Element>, rootMargin = "0px") => {
 const FadeIn: React.FC<{ children?: React.ReactNode; delay?: number; className?: string }> = ({ children, delay = 0, className = "" }) => {
   const ref = useRef<HTMLDivElement>(null);
   const onScreen = useOnScreen(ref, "-50px");
-  
+
   return (
-    <div 
+    <div
       ref={ref}
       className={`transition-all duration-1000 ease-out transform ${onScreen ? 'opacity-100 translate-y-0 rotate-0' : 'opacity-0 translate-y-12 rotate-1'} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
@@ -143,8 +143,8 @@ const StickyMobileCTA = () => {
 
   return (
     <div className="fixed bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-lg border-t border-gray-100 md:hidden z-50 animate-slide-up shadow-[0_-5px_20px_rgba(0,0,0,0.1)]">
-      <Button href="#oferta" fullWidth variant="gold" className="shadow-lg py-3 text-sm">
-        Começar Agora — R$ 37
+      <Button href="#oferta" isCustom fullWidth className="">
+        Quero abençoar meu filho hoje!
       </Button>
     </div>
   );
@@ -155,7 +155,7 @@ const PhoneMockup = ({ className = "" }: { className?: string }) => (
   <div className={`relative mx-auto border-gray-900 bg-gray-900 border-[8px] rounded-[3rem] h-[580px] w-[300px] shadow-2xl flex flex-col overflow-hidden transform transition-transform duration-700 hover:scale-[1.01] ${className}`}>
     {/* Dynamic Island / Notch */}
     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-20"></div>
-    
+
     <div className="rounded-[2.5rem] overflow-hidden w-full h-full bg-white relative">
       {/* Status Bar */}
       <div className="h-10 bg-brand-bgAlt w-full flex justify-between items-center px-6 pt-2 text-[10px] text-gray-500 font-bold">
@@ -165,7 +165,7 @@ const PhoneMockup = ({ className = "" }: { className?: string }) => (
           <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
         </div>
       </div>
-      
+
       {/* App Content */}
       <div className="p-5 flex flex-col h-full overflow-hidden relative">
         {/* Header App */}
@@ -175,10 +175,10 @@ const PhoneMockup = ({ className = "" }: { className?: string }) => (
             <span className="text-brand-dark font-bold text-lg">Mamãe</span>
           </div>
           <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center border border-gray-200">
-             <Users size={16} className="text-gray-400" />
+            <Users size={16} className="text-gray-400" />
           </div>
         </div>
-        
+
         {/* Main Card */}
         <div className="space-y-4 relative z-10">
           <div className="bg-brand-blueLight p-5 rounded-2xl border border-brand-blue/20 shadow-sm">
@@ -188,30 +188,30 @@ const PhoneMockup = ({ className = "" }: { className?: string }) => (
             </div>
             <h4 className="text-brand-dark font-bold text-xl mb-1 font-serif">Davi</h4>
             <p className="text-xs text-gray-500 mb-4">7 anos • Bênção da Coragem</p>
-            
+
             <div className="bg-white p-3 rounded-xl flex items-center gap-3 shadow-sm border border-brand-blue/10">
-               <div className="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center text-white pl-0.5">
-                 <Play size={12} fill="currentColor" />
-               </div>
-               <div className="flex-1">
-                 <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-                   <div className="h-full w-1/3 bg-brand-blue"></div>
-                 </div>
-                 <div className="flex justify-between mt-1">
-                   <span className="text-[8px] text-gray-400">0:42</span>
-                   <span className="text-[8px] text-gray-400">2:15</span>
-                 </div>
-               </div>
+              <div className="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center text-white pl-0.5">
+                <Play size={12} fill="currentColor" />
+              </div>
+              <div className="flex-1">
+                <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full w-1/3 bg-brand-blue"></div>
+                </div>
+                <div className="flex justify-between mt-1">
+                  <span className="text-[8px] text-gray-400">0:42</span>
+                  <span className="text-[8px] text-gray-400">2:15</span>
+                </div>
+              </div>
             </div>
           </div>
-          
+
           {/* Verse Card */}
           <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-16 h-16 bg-brand-gold/10 rounded-bl-full -mr-4 -mt-4"></div>
+            <div className="absolute top-0 right-0 w-16 h-16 bg-brand-gold/10 rounded-bl-full -mr-4 -mt-4"></div>
             <h5 className="font-bold text-gray-800 mb-2 text-sm">Versículo Base</h5>
             <p className="text-xs text-gray-500 leading-relaxed italic">
               "Não fui eu que ordenei a você? Seja forte e corajoso..."
-              <br/><span className="font-semibold not-italic text-brand-blue mt-1 block">- Josué 1:9</span>
+              <br /><span className="font-semibold not-italic text-brand-blue mt-1 block">- Josué 1:9</span>
             </p>
           </div>
 
@@ -219,17 +219,17 @@ const PhoneMockup = ({ className = "" }: { className?: string }) => (
           <div className="space-y-2 pt-2">
             <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Histórico</p>
             <div className="bg-brand-bgAlt p-3 rounded-xl flex items-center gap-3 border border-gray-100">
-               <div className="bg-green-100 text-green-600 w-8 h-8 rounded-full flex items-center justify-center">
-                 <Check size={14}/>
-               </div>
-               <div className="flex-1">
-                 <p className="text-xs font-bold text-gray-700">Ontem</p>
-                 <p className="text-[10px] text-gray-500">Bênção da Sabedoria</p>
-               </div>
+              <div className="bg-green-100 text-green-600 w-8 h-8 rounded-full flex items-center justify-center">
+                <Check size={14} />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-bold text-gray-700">Ontem</p>
+                <p className="text-[10px] text-gray-500">Bênção da Sabedoria</p>
+              </div>
             </div>
           </div>
         </div>
-        
+
         {/* Background gradient in app */}
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
         <div className="mt-auto mb-8 mx-auto w-1/3 h-1 bg-gray-300 rounded-full"></div>
@@ -244,19 +244,21 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   href?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  isCustom?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  variant = 'primary', 
-  fullWidth = false, 
+const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = 'primary',
+  fullWidth = false,
   size = 'md',
-  className = '', 
+  className = '',
   href,
-  ...props 
+  isCustom = false,
+  ...props
 }) => {
   const baseStyles = "inline-flex items-center justify-center rounded-lg font-bold transition-all duration-300 transform active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-offset-2";
-  
+
   const variants = {
     primary: "bg-brand-blue text-white hover:bg-blue-600 shadow-lg shadow-blue-200 focus:ring-brand-blue hover:-translate-y-1",
     gold: "bg-brand-gold text-white hover:bg-brand-goldHover shadow-xl shadow-orange-100 focus:ring-brand-gold uppercase tracking-wide hover:-translate-y-1 hover:shadow-orange-200",
@@ -272,6 +274,55 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const widthClass = fullWidth ? "w-full" : "";
+
+  // New Custom Button Style
+  if (isCustom) {
+    const customContent = (
+      <>
+        {/* Efeito Shiny passando pelo botão */}
+        <div className="shiny-effect"></div>
+
+        {/* Texto Inicial */}
+        <div className="pl-6 pr-14 opacity-100 group-hover:opacity-0 transition-all duration-200 delay-200 group-hover:delay-0 z-0">
+          <span className="text-white text-lg font-bold tracking-tight whitespace-nowrap">
+            {children}
+          </span>
+        </div>
+
+        {/* Camada Branca que Expande */}
+        <div className="bg-expand absolute right-1 top-1 bottom-1 w-12 bg-white rounded-xl flex items-center justify-center transition-all duration-500 ease-in-out z-10">
+
+          {/* Ícone de Seta para a Direita */}
+          <div className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-200 delay-300 group-hover:delay-0">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#27AE60]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </div>
+
+          {/* Preço no Hover */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:delay-300 delay-0">
+            <span className="text-[#27AE60] font-bold text-lg whitespace-nowrap">R$ 37,00</span>
+          </div>
+        </div>
+      </>
+    );
+
+    const customClasses = `btn-custom relative group inline-flex items-center min-w-[240px] w-fit h-14 bg-[#27AE60] rounded-2xl p-1 transition-all duration-300 overflow-hidden shadow-xl shadow-[#27AE60]/20 border-2 border-transparent hover:border-white/50 ${widthClass} ${className}`;
+
+    if (href) {
+      return (
+        <a href={href} className={customClasses}>
+          {customContent}
+        </a>
+      );
+    }
+    return (
+      <button className={customClasses} {...props}>
+        {customContent}
+      </button>
+    );
+  }
+
   const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`;
 
   if (href) {
@@ -303,7 +354,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 border-b ${scrolled ? 'bg-white/95 backdrop-blur-md border-gray-100 shadow-sm py-2' : 'bg-transparent border-transparent py-4'}`}>
+    <nav className={`fixed w-full top-0 z-[100] transition-all duration-300 border-b ${scrolled ? 'bg-white/95 backdrop-blur-md border-gray-100 shadow-sm py-2' : 'bg-transparent border-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <div className="flex-shrink-0 flex items-center gap-2">
@@ -312,11 +363,11 @@ const Navbar = () => {
               Bênçãos Familiares
             </span>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
             <a href="#como-funciona" className="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm tracking-wide">Como Funciona</a>
             <a href="#depoimentos" className="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm tracking-wide">Depoimentos</a>
-            <Button href="#oferta" variant="primary" size="sm" className="rounded-full shadow-none hover:shadow-lg">
+            <Button href="#oferta" variant="primary" size="sm" className="rounded-xl shadow-none hover:shadow-lg">
               Começar Agora
             </Button>
           </div>
@@ -340,7 +391,7 @@ const Navbar = () => {
               Depoimentos
             </a>
             <div className="pt-2 px-2">
-              <Button href="#oferta" fullWidth onClick={() => setIsOpen(false)}>
+              <Button href="#oferta" isCustom fullWidth onClick={() => setIsOpen(false)}>
                 Começar Agora
               </Button>
             </div>
@@ -354,106 +405,106 @@ const Navbar = () => {
 // Section 1: Hero
 const Hero = () => {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-gradient-to-b from-brand-blueLight/30 to-white relative overflow-hidden flex flex-col items-center">
-      
+    <div className="min-h-screen pt-16 pb-16 bg-gradient-to-b from-brand-blueLight/30 to-white relative overflow-hidden flex flex-col items-center">
+
       {/* Background Rings - Original Style */}
       <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-blue/5 rounded-full pointer-events-none animate-pulse-slow"></div>
       <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-brand-blue/5 rounded-full pointer-events-none"></div>
-      
+
       {/* Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
-        
+
         {/* Text Section */}
-        <div className="text-center max-w-5xl mx-auto mb-16 relative z-20">
+        <div className="text-center max-w-4xl mb-16 relative z-20">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-brand-dark tracking-tight mb-8 leading-[1.1] drop-shadow-sm">
-              Você sabia que 2 minutos por dia podem mudar o <br className="hidden lg:block"/>
+              Você sabia que 2 minutos por dia podem mudar o <br className="hidden lg:block" />
               <span className="text-brand-blue relative inline-block">
                 destino espiritual
                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-gold opacity-40" viewBox="0 0 100 10" preserveAspectRatio="none">
-                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                 </svg>
               </span> do seu filho?
             </h1>
           </FadeIn>
-          
+
           <FadeIn delay={200}>
             <p className="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
-              Abençoe seus filhos todos os dias com o altar digital que cabe no seu bolso — e deixe uma herança que nem o mundo, nem o tempo podem roubar.
+              Abençoe seus filhos todos os dias com o altar digital e deixe uma herança que nem o mundo, nem o tempo podem roubar do seu filho.
             </p>
           </FadeIn>
-          
+
           <FadeIn delay={400} className="mt-12">
-            <Button href="#oferta" variant="gold" size="lg" className="rounded-full shadow-2xl shadow-brand-gold/40 animate-pulse-slow px-12">
-              Comece a Abençoar Hoje por R$ 37 <ArrowRight className="ml-2 w-5 h-5"/>
+            <Button href="#oferta" isCustom className="shadow-2xl shadow-[#27AE60]/40 animate-pulse-slow">
+              Comece a abençoar seu filho hoje!
             </Button>
           </FadeIn>
         </div>
 
         {/* Visual Section with Floating Elements */}
-        <div className="relative w-full max-w-5xl mx-auto h-[500px] md:h-[600px] flex justify-center perspective">
-           
-           {/* Center Phone */}
-           <FadeIn delay={600} className="relative z-20 transform translate-y-10 md:translate-y-0">
-              <PhoneMockup />
-           </FadeIn>
+        <div className="relative w-full max-w-5xl mx-auto h-full md:h-[600px] flex justify-center perspective">
 
-           {/* Floating Element 1: Audio Player */}
-           <div className="hidden md:block absolute top-20 left-0 lg:left-10 z-30 animate-float" style={{ animationDelay: '0s' }}>
-             <FadeIn delay={800}>
-               <div className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 flex items-center gap-4 max-w-[260px] hover:scale-105 transition-transform">
-                 <div className="w-12 h-12 rounded-full bg-brand-blueLight flex items-center justify-center text-brand-blue shadow-inner">
-                   <Play size={20} fill="currentColor" />
-                 </div>
-                 <div className="flex-1 min-w-0">
-                   <div className="h-6 w-full flex items-center gap-0.5">
-                     {[...Array(12)].map((_, i) => (
-                       <div key={i} className={`w-1 rounded-full bg-brand-blue ${i % 2 === 0 ? 'h-3' : 'h-6'}`} style={{ opacity: Math.random() * 0.5 + 0.5 }}></div>
-                     ))}
-                   </div>
-                 </div>
-               </div>
-             </FadeIn>
-           </div>
-           
-           {/* Floating Element 2: Security */}
-           <div className="hidden md:block absolute top-32 right-0 lg:right-10 z-20 animate-float" style={{ animationDelay: '1.5s' }}>
-             <FadeIn delay={1000}>
-               <div className="bg-[#E8F5E9] p-5 rounded-2xl shadow-lg border border-green-100 max-w-[220px] hover:translate-y-[-5px] transition-transform">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Lock size={18} className="text-green-600" />
-                    <span className="text-xs font-bold text-green-700 uppercase">Seguro</span>
-                  </div>
-                  <p className="text-sm font-medium text-gray-700 leading-tight">
-                    Conteúdo <span className="bg-green-200/50 px-1 rounded font-bold text-green-800">100% bíblico</span>
-                  </p>
-               </div>
-             </FadeIn>
-           </div>
+          {/* Center Phone */}
+          <FadeIn delay={600} className="relative z-20 transform translate-y-10 md:translate-y-0">
+            <PhoneMockup />
+          </FadeIn>
 
-           {/* Floating Element 3: Stats */}
-           <div className="hidden md:block absolute bottom-32 right-10 lg:right-24 z-30 animate-float" style={{ animationDelay: '3s' }}>
-             <FadeIn delay={1100}>
-               <div className="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 min-w-[180px] text-center hover:scale-105 transition-transform">
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-50 mb-2">
-                     <Flame size={20} className="text-orange-500 fill-orange-500" />
+          {/* Floating Element 1: Audio Player */}
+          <div className="hidden md:block absolute top-20 left-0 lg:left-10 z-30 animate-float" style={{ animationDelay: '0s' }}>
+            <FadeIn delay={800}>
+              <div className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-white/50 flex items-center gap-4 max-w-[260px] hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-brand-blueLight flex items-center justify-center text-brand-blue shadow-inner">
+                  <Play size={20} fill="currentColor" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="h-6 w-full flex items-center gap-0.5">
+                    {[...Array(12)].map((_, i) => (
+                      <div key={i} className={`w-1 rounded-full bg-brand-blue ${i % 2 === 0 ? 'h-3' : 'h-6'}`} style={{ opacity: Math.random() * 0.5 + 0.5 }}></div>
+                    ))}
                   </div>
-                  <p className="text-3xl font-bold text-gray-800 font-serif">12 dias</p>
-                  <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Sequência</p>
-               </div>
-             </FadeIn>
-           </div>
-           
-           {/* Mobile Only: Simple Floating Label */}
-           <div className="md:hidden absolute top-20 right-4 z-30 animate-bounce">
-              <div className="bg-brand-gold text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                Oferta Vitalícia
+                </div>
               </div>
-           </div>
+            </FadeIn>
+          </div>
+
+          {/* Floating Element 2: Security */}
+          <div className="hidden md:block absolute top-32 right-0 lg:right-10 z-20 animate-float" style={{ animationDelay: '1.5s' }}>
+            <FadeIn delay={1000}>
+              <div className="bg-[#E8F5E9] p-5 rounded-2xl shadow-lg border border-green-100 max-w-[220px] hover:translate-y-[-5px] transition-transform">
+                <div className="flex items-center gap-2 mb-2">
+                  <Lock size={18} className="text-green-600" />
+                  <span className="text-xs font-bold text-green-700 uppercase">Seguro</span>
+                </div>
+                <p className="text-sm font-medium text-gray-700 leading-tight">
+                  Conteúdo <span className="bg-green-200/50 px-1 rounded font-bold text-green-800">100% bíblico</span>
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Floating Element 3: Stats */}
+          <div className="hidden md:block absolute bottom-32 right-10 lg:right-24 z-30 animate-float" style={{ animationDelay: '3s' }}>
+            <FadeIn delay={1100}>
+              <div className="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 min-w-[180px] text-center hover:scale-105 transition-transform">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-50 mb-2">
+                  <Flame size={20} className="text-orange-500 fill-orange-500" />
+                </div>
+                <p className="text-3xl font-bold text-gray-800 font-serif">12 dias</p>
+                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Sequência</p>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Mobile Only: Simple Floating Label */}
+          <div className="md:hidden absolute top-20 right-4 z-30 animate-bounce">
+            <div className="bg-brand-gold text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+              Oferta Vitalícia
+            </div>
+          </div>
 
         </div>
       </div>
-      
+
     </div>
   );
 };
@@ -481,59 +532,59 @@ const PainPoints = () => {
   return (
     <section className="py-16 md:py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center mb-16 md:mb-24">
-           {/* Left Column: Text & List */}
-           <div className="order-1">
-              <FadeIn>
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-2">
-                  Se você já sentiu isso...
-                </h2>
-                <h2 className="text-4xl md:text-5xl font-serif text-gray-400 mb-12">
-                  você não está sozinha.
-                </h2>
-              </FadeIn>
+          {/* Left Column: Text & List */}
+          <div className="order-1">
+            <FadeIn>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-2">
+                Se você já sentiu isso...
+              </h2>
+              <h2 className="text-4xl md:text-5xl font-serif text-gray-400 mb-12">
+                você não está sozinha.
+              </h2>
+            </FadeIn>
 
-              <div className="space-y-0">
-                {pains.map((pain, index) => (
-                  <FadeIn key={index} delay={index * 150}>
-                    <div className={`flex gap-4 md:gap-6 py-6 md:py-8 ${index !== pains.length - 1 ? 'border-b border-gray-100' : ''}`}>
-                      <div className="w-16 h-16 rounded-full bg-brand-blueLight flex items-center justify-center flex-shrink-0">
-                        {pain.icon}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-brand-dark mb-2 leading-tight">{pain.title}</h3>
-                        <p className="text-sm text-gray-500 leading-relaxed">
-                          {pain.desc}
-                        </p>
-                      </div>
+            <div className="space-y-0">
+              {pains.map((pain, index) => (
+                <FadeIn key={index} delay={index * 150}>
+                  <div className={`flex gap-4 md:gap-6 py-6 md:py-8 ${index !== pains.length - 1 ? 'border-b border-gray-100' : ''}`}>
+                    <div className="w-16 h-16 rounded-full bg-brand-blueLight flex items-center justify-center flex-shrink-0">
+                      {pain.icon}
                     </div>
-                  </FadeIn>
-                ))}
-              </div>
-           </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-brand-dark mb-2 leading-tight">{pain.title}</h3>
+                      <p className="text-sm text-gray-500 leading-relaxed">
+                        {pain.desc}
+                      </p>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
 
-           {/* Right Column: Image */}
-           <div className="order-2 h-full flex items-center">
-              <FadeIn delay={300} className="w-full h-full">
-                <div className="relative w-full aspect-square md:aspect-auto md:h-full min-h-[300px] md:min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1616530664971-55c83bc5d58f?q=80&w=2070&auto=format&fit=crop" 
-                    alt="Mãe olhando o celular com filho dormindo ao fundo"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-brand-dark/10 mix-blend-multiply"></div>
-                </div>
-              </FadeIn>
-           </div>
+          {/* Right Column: Image */}
+          <div className="order-2 h-full flex items-center">
+            <FadeIn delay={300} className="w-full h-full">
+              <div className="relative w-full aspect-square md:aspect-auto md:h-full min-h-[300px] md:min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1616530664971-55c83bc5d58f?q=80&w=2070&auto=format&fit=crop"
+                  alt="Mãe olhando o celular com filho dormindo ao fundo"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-brand-dark/10 mix-blend-multiply"></div>
+              </div>
+            </FadeIn>
+          </div>
         </div>
 
         {/* Transition Text */}
         <FadeIn delay={400}>
-          <div className="bg-brand-blueLight/30 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto border border-brand-blue/10 relative overflow-hidden">
+          <div className="bg-brand-blueLight/30 rounded-3xl p-8 md:p-12 text-center max-w-5xl mx-auto border border-brand-blue/10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-2 h-full bg-brand-gold"></div>
             <h3 className="text-2xl md:text-3xl font-serif font-semibold text-brand-dark leading-snug">
-              E se você pudesse abençoar seus filhos todo dia — <span className="text-brand-blue font-bold">em 2 minutos</span>, com as palavras certas, sem precisar ser pastora?
+              E se você pudesse abençoar seus filhos todos os dias <span className="text-brand-blue font-bold">em 2 minutos</span>, com as palavras certas seguindo a palavra do Senhor?
             </h3>
           </div>
         </FadeIn>
@@ -549,7 +600,7 @@ const Solution = () => {
     <section id="como-funciona" className="py-32 bg-brand-bgAlt overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-20 items-center">
-          
+
           {/* Left: Content */}
           <div className="order-2 md:order-1">
             <FadeIn>
@@ -557,18 +608,18 @@ const Solution = () => {
                 O altar digital
               </div>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">
-                Conheça o <br/>Bênçãos Familiares
+                Conheça a plataforma <br />Bênçãos Familiares
               </h2>
               <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-                Bênçãos Familiares é o app que entrega uma bênção personalizada por dia — com o nome e idade do seu filho, base bíblica, reflexão e oração guiada.
+                Bênçãos Familiares uma plataforma completa que te entrega uma bênção personalizada por dia, com o nome e idade do seu filho, base bíblica, reflexão e oração guiada.
               </p>
             </FadeIn>
 
             <div className="space-y-10">
               {[
-                { step: "01", title: "Abre o app", desc: "(10 segundos)" },
-                { step: "02", title: "Recebe a bênção do dia", desc: "Personalizada com o nome do seu filho" },
-                { step: "03", title: "Declara a oração guiada", desc: "" }
+                { step: "01", title: "Acesse a plataforma", desc: "(em menos de 10 segundos)" },
+                { step: "02", title: "Receba a bênção do dia", desc: "Personalizada baseada na idade e nome do seu filho" },
+                { step: "03", title: "Declara a oração guiada", desc: "Leia em voz alta e declare essas palavras a seu filho" }
               ].map((item, idx) => (
                 <FadeIn key={idx} delay={idx * 150} className="flex gap-6 items-start group">
                   <div className="flex-shrink-0 w-14 h-14 rounded-full border border-gray-200 bg-white flex items-center justify-center text-brand-dark font-serif font-bold text-xl shadow-sm group-hover:border-brand-blue group-hover:text-brand-blue transition-colors duration-300">
@@ -585,7 +636,7 @@ const Solution = () => {
             <FadeIn delay={500} className="mt-12">
               <div className="bg-brand-gold/10 border-l-4 border-brand-gold p-6 rounded-r-xl">
                 <p className="text-xl text-brand-dark font-serif font-medium italic">
-                  "Pronto. 2 minutos. E você acabou de plantar fé, paz e direção no coração dele."
+                  "Pronto em 2 minutos você plantou fé, paz e direção no coração dele."
                 </p>
               </div>
             </FadeIn>
@@ -593,10 +644,10 @@ const Solution = () => {
 
           {/* Right: Visual */}
           <div className="order-1 md:order-2 flex justify-center relative">
-             <div className="absolute inset-0 bg-brand-blue/5 rounded-full blur-[80px] transform scale-75"></div>
-             <FadeIn delay={300} className="transform md:rotate-3 transition-transform hover:rotate-0 duration-700">
-               <PhoneMockup className="shadow-2xl shadow-brand-blue/20" />
-             </FadeIn>
+            <div className="absolute inset-0 bg-brand-blue/5 rounded-full blur-[80px] transform scale-75"></div>
+            <FadeIn delay={300} className="transform md:rotate-3 transition-transform hover:rotate-0 duration-700">
+              <PhoneMockup className="shadow-2xl shadow-brand-blue/20" />
+            </FadeIn>
           </div>
 
         </div>
@@ -698,29 +749,29 @@ const SocialProof = () => {
             Mães que já estão vivendo essa transformação:
           </h2>
         </FadeIn>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-             <FadeIn key={i} delay={i * 200}>
-               <div className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100 h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-                 <div className="absolute top-6 right-8 text-6xl text-brand-blue/10 font-serif">"</div>
-                 <div className="flex-1 mb-8 relative z-10">
-                   <div className="flex gap-1 mb-6">
-                     {[...Array(5)].map((_, j) => <Star key={j} size={14} className="text-brand-gold fill-brand-gold" />)}
-                   </div>
-                   <p className="text-gray-700 italic leading-relaxed text-lg font-serif">"{t.quote}"</p>
-                 </div>
-                 <div className="flex items-center gap-4 mt-auto pt-6 border-t border-gray-50">
-                   <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 font-bold text-lg border border-white shadow-sm">
-                     {t.author[0]}
-                   </div>
-                   <div>
-                     <p className="font-bold text-brand-dark">{t.author}</p>
-                     <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{t.role}</p>
-                   </div>
-                 </div>
-               </div>
-             </FadeIn>
+            <FadeIn key={i} delay={i * 200}>
+              <div className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100 h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+                <div className="absolute top-6 right-8 text-6xl text-brand-blue/10 font-serif">"</div>
+                <div className="flex-1 mb-8 relative z-10">
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(5)].map((_, j) => <Star key={j} size={14} className="text-brand-gold fill-brand-gold" />)}
+                  </div>
+                  <p className="text-gray-700 italic leading-relaxed text-lg font-serif">"{t.quote}"</p>
+                </div>
+                <div className="flex items-center gap-4 mt-auto pt-6 border-t border-gray-50">
+                  <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 font-bold text-lg border border-white shadow-sm">
+                    {t.author[0]}
+                  </div>
+                  <div>
+                    <p className="font-bold text-brand-dark">{t.author}</p>
+                    <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>
@@ -733,7 +784,7 @@ const WhatYouGet = () => {
   return (
     <section className="py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         <FadeIn>
           <div className="text-center max-w-4xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">
@@ -746,24 +797,22 @@ const WhatYouGet = () => {
         </FadeIn>
 
         <div className="space-y-8">
-          
+
           {/* Row 1: 365 Blessings & Personalization */}
           <div className="grid md:grid-cols-2 gap-8">
             <FadeIn delay={100} className="h-full">
               <div className="bg-brand-blue/5 rounded-[2.5rem] p-8 md:p-12 border border-brand-blue/10 h-full flex flex-col justify-between hover:border-brand-blue/30 transition-colors group">
                 <div className="mb-8">
-                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white text-brand-blue shadow-sm mb-6">
-                     <Calendar size={28} strokeWidth={2.5} />
-                   </div>
-                   <h3 className="text-3xl font-bold text-brand-dark mb-4">365 Bênçãos Únicas</h3>
-                   <p className="text-gray-600 leading-relaxed text-lg">
-                     Você nunca vai ficar sem conteúdo. Nunca vai repetir a mesma oração genérica. São 365 bênçãos exclusivas, cuidadosamente escritas para cobrir todos os dias do ano.
-                   </p>
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white text-brand-blue shadow-sm mb-6">
+                    <Calendar size={28} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-brand-dark mb-4">365 Bênçãos Únicas</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    Você nunca vai ficar sem conteúdo. Nunca vai repetir a mesma oração genérica. São 365 bênçãos exclusivas, cuidadosamente escritas para cobrir todos os dias do ano.
+                  </p>
                 </div>
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-brand-blue/5 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-10">
-                    <Calendar size={100} />
-                  </div>
+
                   <p className="text-brand-dark font-serif italic text-lg relative z-10">"Seu filho vai receber uma palavra nova todos os dias — e você nunca vai precisar pensar no que dizer."</p>
                 </div>
               </div>
@@ -772,25 +821,25 @@ const WhatYouGet = () => {
             <FadeIn delay={200} className="h-full">
               <div className="bg-gray-50 rounded-[2.5rem] p-8 md:p-12 border border-gray-100 h-full flex flex-col hover:border-gray-200 transition-colors">
                 <div className="mb-6">
-                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white text-brand-blue shadow-sm mb-6">
-                     <Users size={28} strokeWidth={2.5} />
-                   </div>
-                   <h3 className="text-3xl font-bold text-brand-dark mb-4">Personalização Total</h3>
-                   <p className="text-gray-600 leading-relaxed text-lg mb-8">
-                     O nome do seu filho aparece na bênção. A linguagem se adapta à idade dele. Isso faz TODA a diferença no impacto emocional.
-                   </p>
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white text-brand-blue shadow-sm mb-6">
+                    <Users size={28} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-brand-dark mb-4">Personalização Total</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg mb-8">
+                    O nome do seu filho aparece na bênção. A linguagem se adapta à idade dele. Isso faz TODA a diferença no impacto emocional.
+                  </p>
                 </div>
-                
+
                 {/* Visual Mockup */}
                 <div className="mt-auto bg-white rounded-3xl p-6 shadow-lg border border-gray-100 relative">
-                   <div className="flex items-center gap-3 mb-4 border-b border-gray-50 pb-4">
-                      <div className="w-10 h-10 rounded-full bg-brand-blueLight flex items-center justify-center text-brand-blue font-bold">J</div>
-                      <div>
-                        <p className="text-xs text-gray-400 font-bold uppercase">Para:</p>
-                        <p className="font-bold text-brand-dark">João, 7 anos</p>
-                      </div>
-                   </div>
-                   <p className="text-gray-600 italic text-sm">"Senhor, peço que a Tua mão esteja sobre o <span className="bg-brand-blue/10 text-brand-blue font-bold px-1 rounded">João</span> hoje..."</p>
+                  <div className="flex items-center gap-3 mb-4 border-b border-gray-50 pb-4">
+                    <div className="w-10 h-10 rounded-full bg-brand-blueLight flex items-center justify-center text-brand-blue font-bold">J</div>
+                    <div>
+                      <p className="text-xs text-gray-400 font-bold uppercase">Para:</p>
+                      <p className="font-bold text-brand-dark">João, 7 anos</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 italic text-sm">"Senhor, peço que a Tua mão esteja sobre o <span className="bg-brand-blue/10 text-brand-blue font-bold px-1 rounded">João</span> hoje..."</p>
                 </div>
               </div>
             </FadeIn>
@@ -798,13 +847,13 @@ const WhatYouGet = () => {
 
           {/* Row 2: 7 Categories */}
           <FadeIn delay={300}>
-            <div className="bg-white rounded-[2.5rem] border border-gray-100 shadow-xl overflow-hidden relative">
+            <div className="bg-white rounded-[2.5rem] border border-gray-100 hover:shadow-xl transition-all duration-500 overflow-hidden relative group">
               <div className="absolute inset-0 bg-brand-bgAlt/50"></div>
               <div className="relative z-10 p-8 md:p-12">
                 <h3 className="text-2xl md:text-3xl font-bold text-brand-dark mb-8 text-center">
                   7 Categorias Espirituais Estratégicas
                 </h3>
-                
+
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
                   {[
                     { icon: Shield, label: "Proteção", color: "text-blue-500", bg: "bg-blue-50" },
@@ -815,7 +864,7 @@ const WhatYouGet = () => {
                     { icon: TrendingUp, label: "Crescimento", color: "text-indigo-500", bg: "bg-indigo-50" },
                     { icon: Sun, label: "Paz", color: "text-brand-gold", bg: "bg-yellow-50" },
                   ].map((cat, i) => (
-                    <div key={i} className="flex flex-col items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:translate-y-[-2px] transition-transform">
+                    <div key={i} className={`flex flex-col items-center p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300 ${i === 6 ? 'col-span-2 md:col-span-1' : ''}`}>
                       <div className={`w-12 h-12 rounded-full ${cat.bg} ${cat.color} flex items-center justify-center mb-3`}>
                         <cat.icon size={20} />
                       </div>
@@ -835,62 +884,62 @@ const WhatYouGet = () => {
             <FadeIn delay={400} className="h-full">
               <div className="bg-gray-900 rounded-[2.5rem] p-8 md:p-12 text-white h-full relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/20 rounded-full blur-[80px] group-hover:bg-brand-blue/30 transition-colors"></div>
-                
+
                 <div className="relative z-10">
-                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/10 text-brand-gold shadow-sm mb-6">
-                     <BookOpen size={28} strokeWidth={2.5} />
-                   </div>
-                   <h3 className="text-3xl font-bold text-white mb-6">Base Bíblica Sólida</h3>
-                   
-                   <div className="space-y-4">
-                     <div className="flex gap-4 items-start">
-                       <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-sm font-bold">1</div>
-                       <div>
-                         <p className="font-bold text-white">Versículo Bíblico</p>
-                         <p className="text-gray-400 text-sm">A fundação da oração, direto da Palavra.</p>
-                       </div>
-                     </div>
-                     <div className="flex gap-4 items-start">
-                       <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-sm font-bold">2</div>
-                       <div>
-                         <p className="font-bold text-white">Reflexão Espiritual</p>
-                         <p className="text-gray-400 text-sm">Significado explicado de forma simples.</p>
-                       </div>
-                     </div>
-                     <div className="flex gap-4 items-start">
-                       <div className="w-8 h-8 rounded-full bg-brand-gold text-brand-dark flex items-center justify-center flex-shrink-0 text-sm font-bold">3</div>
-                       <div>
-                         <p className="font-bold text-brand-gold">Oração Guiada</p>
-                         <p className="text-gray-400 text-sm">Passo a passo do que declarar.</p>
-                       </div>
-                     </div>
-                   </div>
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/10 text-brand-gold shadow-sm mb-6">
+                    <BookOpen size={28} strokeWidth={2.5} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-white mb-6">Base Bíblica Sólida</h3>
+
+                  <div className="space-y-4">
+                    <div className="flex gap-4 items-start">
+                      <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-sm font-bold">1</div>
+                      <div>
+                        <p className="font-bold text-white">Versículo Bíblico</p>
+                        <p className="text-gray-400 text-sm">A fundação da oração, direto da Palavra.</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4 items-start">
+                      <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-sm font-bold">2</div>
+                      <div>
+                        <p className="font-bold text-white">Reflexão Espiritual</p>
+                        <p className="text-gray-400 text-sm">Significado explicado de forma simples.</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4 items-start">
+                      <div className="w-8 h-8 rounded-full bg-brand-gold text-brand-dark flex items-center justify-center flex-shrink-0 text-sm font-bold">3</div>
+                      <div>
+                        <p className="font-bold text-brand-gold">Oração Guiada</p>
+                        <p className="text-gray-400 text-sm">Passo a passo do que declarar.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </FadeIn>
 
             <FadeIn delay={500} className="h-full">
               <div className="bg-gradient-to-br from-brand-gold/10 to-orange-50 rounded-[2.5rem] p-8 md:p-12 border border-brand-gold/20 h-full">
-                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-gold text-white shadow-lg shadow-brand-gold/30 mb-6">
-                   <Flame size={28} strokeWidth={2.5} fill="currentColor" />
-                 </div>
-                 <h3 className="text-3xl font-bold text-brand-dark mb-4">Sistema de Hábito</h3>
-                 <p className="text-gray-600 mb-8">
-                   Streak (sequência), histórico completo e conquistas para celebrar cada marco. Não é gamificação vazia. É um sistema que sustenta você.
-                 </p>
-                 
-                 {/* Visual Streak */}
-                 <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-gray-400 font-bold uppercase">Sequência Atual</p>
-                      <p className="text-2xl font-bold text-brand-dark">12 Dias 🔥</p>
-                    </div>
-                    <div className="flex gap-1">
-                      {[1,2,3,4,5].map(d => (
-                        <div key={d} className={`w-2 h-8 rounded-full ${d > 2 ? 'bg-brand-gold' : 'bg-gray-200'}`}></div>
-                      ))}
-                    </div>
-                 </div>
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-gold text-white shadow-lg shadow-brand-gold/30 mb-6">
+                  <Flame size={28} strokeWidth={2.5} fill="currentColor" />
+                </div>
+                <h3 className="text-3xl font-bold text-brand-dark mb-4">Sistema de Hábito</h3>
+                <p className="text-gray-600 mb-8">
+                  Streak (sequência), histórico completo e conquistas para celebrar cada marco. É um sistema completo que te ajuda a criar hábitos espirituia.
+                </p>
+
+                {/* Visual Streak */}
+                <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center justify-between">
+                  <div>
+                    <p className="text-xs text-gray-400 font-bold uppercase">Sequência Atual</p>
+                    <p className="text-2xl font-bold text-brand-dark">12 Dias 🔥</p>
+                  </div>
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map(d => (
+                      <div key={d} className={`w-2 h-8 rounded-full ${d > 2 ? 'bg-brand-gold' : 'bg-gray-200'}`}></div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -901,7 +950,7 @@ const WhatYouGet = () => {
               { icon: Infinity, title: "Acesso Vitalício", desc: "Pague uma vez, use para sempre. Sem mensalidades." },
               { icon: RefreshCw, title: "Atualizações Grátis", desc: "Novas bênçãos e recursos sem custo adicional." }
             ].map((item, i) => (
-              <FadeIn key={i} delay={600 + (i*100)}>
+              <FadeIn key={i} delay={600 + (i * 100)}>
                 <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 h-full hover:bg-white hover:shadow-lg transition-all duration-300">
                   <item.icon size={32} className="text-brand-blue mb-4" />
                   <h4 className="text-xl font-bold text-brand-dark mb-2">{item.title}</h4>
@@ -930,23 +979,23 @@ const Offer = () => {
             Quanto custa deixar uma <span className="text-brand-blue">herança eterna</span> nos seus filhos?
           </h2>
           <div className="max-w-2xl mx-auto space-y-6 mb-16 text-lg text-gray-600">
-             <p>Você acabou de ver tudo que terá de acesso dentro da plataforma.</p>
-             <p>Quanto você imaginava que algo assim custaria?</p>
-             <p className="text-xl font-medium text-gray-400 line-through decoration-red-400/50">R$ 97 por mês? R$ 297 no ano?</p>
-             
-             <div className="pt-2">
-               <p className="text-2xl font-bold text-brand-dark">
-                 O acesso vitalício ao Bênçãos Familiares custa apenas <span className="text-brand-blue bg-brand-blue/10 px-2 rounded">R$ 37</span>.
-               </p>
-               <p className="text-base mt-3 font-medium">Pagamento único. Sem mensalidade. Sem renovação. Sem surpresas.</p>
-               <p className="font-bold text-brand-gold mt-6 text-xl font-serif italic">"Você paga uma vez. Abençoa seus filhos para sempre."</p>
-             </div>
+            <p>Você acabou de ver tudo que terá de acesso dentro da plataforma.</p>
+            <p>Quanto você imaginava que algo assim custaria?</p>
+            <p className="text-xl font-medium text-gray-400 line-through decoration-red-400/50">R$ 97 por mês? R$ 297 no ano?</p>
+
+            <div className="pt-2">
+              <p className="text-2xl font-bold text-brand-dark">
+                O acesso vitalício ao Bênçãos Familiares custa apenas <span className="text-brand-blue bg-brand-blue/10 px-2 rounded">R$ 37</span>.
+              </p>
+              <p className="text-base mt-3 font-medium">Pagamento único. Sem mensalidade. Sem renovação. Sem surpresas.</p>
+              <p className="font-bold text-brand-gold mt-6 text-xl font-serif italic">"Você paga uma vez. Abençoa seus filhos para sempre."</p>
+            </div>
           </div>
         </FadeIn>
 
         <FadeIn delay={200}>
           <div className="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] max-w-lg mx-auto relative border-2 border-brand-blue/10 transform hover:scale-[1.01] transition-transform duration-500">
-            
+
             <div className="text-center mb-8">
               <span className="bg-brand-blue/10 text-brand-blue px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest inline-block mb-6">
                 Acesso Vitalício
@@ -977,10 +1026,10 @@ const Offer = () => {
               ))}
             </div>
 
-            <Button fullWidth variant="gold" size="xl" className="rounded-2xl shadow-xl shadow-brand-gold/30 animate-pulse-slow mb-6 text-lg md:text-xl">
-              SIM, EU QUERO ABENÇOAR MEUS FILHOS — R$ 37
+            <Button href="#oferta" isCustom fullWidth className="shadow-xl shadow-[#27AE60]/30 animate-pulse-slow mb-6">
+              Sim, eu quero abençoar meus filhos!
             </Button>
-            
+
             <p className="text-xs md:text-sm text-gray-500 font-medium text-center opacity-80">
               🔒 Pagamento 100% seguro | ⚡ Acesso imediato | 💳 Cartão ou PIX
             </p>
@@ -1039,7 +1088,7 @@ const BeforeAfter = () => {
 
           {/* After */}
           <div className="bg-brand-blueLight/20 p-8 md:p-12 relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-bl-full"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-bl-full"></div>
             <h3 className="text-xl font-bold text-brand-blue mb-8 flex items-center gap-2 uppercase tracking-widest">
               <CheckCircle2 className="w-6 h-6" /> Depois
             </h3>
@@ -1096,14 +1145,14 @@ const FAQ = () => {
           {faqs.map((faq, idx) => (
             <FadeIn key={idx} delay={idx * 100}>
               <div className="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                <button 
+                <button
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                   className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
                 >
                   <span className="font-bold text-brand-dark text-lg">{faq.q}</span>
                   {openIndex === idx ? <Minus className="text-brand-blue" /> : <Plus className="text-gray-400" />}
                 </button>
-                <div 
+                <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                   <p className="p-5 pt-0 text-gray-600 leading-relaxed">
@@ -1134,8 +1183,8 @@ const FinalCTA = () => {
       id: 1,
       order: 0,
       x: "-340px",
-      y: "10px",
-      zIndex: 50,
+      y: "-20px",
+      zIndex: 25,
       direction: "left" as const,
       src: "https://images.pexels.com/photos/4262413/pexels-photo-4262413.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
@@ -1143,8 +1192,8 @@ const FinalCTA = () => {
       id: 2,
       order: 1,
       x: "-170px",
-      y: "-20px",
-      zIndex: 40,
+      y: "-50px",
+      zIndex: 24,
       direction: "right" as const,
       src: "https://images.pexels.com/photos/4262424/pexels-photo-4262424.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
@@ -1152,8 +1201,8 @@ const FinalCTA = () => {
       id: 3,
       order: 2,
       x: "0px",
-      y: "15px",
-      zIndex: 30,
+      y: "-15px",
+      zIndex: 23,
       direction: "left" as const,
       src: "https://images.pexels.com/photos/3905891/pexels-photo-3905891.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
@@ -1161,8 +1210,8 @@ const FinalCTA = () => {
       id: 4,
       order: 3,
       x: "170px",
-      y: "-15px",
-      zIndex: 20,
+      y: "-45px",
+      zIndex: 22,
       direction: "right" as const,
       src: "https://images.pexels.com/photos/3905710/pexels-photo-3905710.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
@@ -1170,30 +1219,29 @@ const FinalCTA = () => {
       id: 5,
       order: 4,
       x: "340px",
-      y: "30px",
-      zIndex: 10,
+      y: "0px",
+      zIndex: 21,
       direction: "left" as const,
       src: "https://images.pexels.com/photos/4261066/pexels-photo-4261066.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
   ];
 
   return (
-    <div className="bg-white py-24 px-4 overflow-hidden flex flex-col items-center relative">
+    <div className="bg-white pt-12 pb-24 px-4 overflow-hidden flex flex-col items-center relative">
       {/* Background Decorativo Suave */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]" />
 
       {/* Header do Conteúdo */}
       <div className="max-w-4xl w-full text-center z-10 mb-8">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-brand-dark leading-tight mb-6"
         >
-          Seus filhos precisam ouvir a voz de Deus... <br />
-          <span className="text-brand-blue">Seja esse porta voz!</span>
+          Seus filhos precisam ouvir a voz de Deus... <span className="text-brand-blue">Seja esse porta voz!</span>
         </motion.h2>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -1204,24 +1252,24 @@ const FinalCTA = () => {
       </div>
 
       {/* Galeria de Fotos Interativa */}
-      <div className="relative w-full h-[300px] flex items-center justify-center mb-16">
+      <div className="relative w-full h-[300px] flex items-center justify-center mb-48">
         <div className="relative w-full max-w-7xl flex justify-center">
           <AnimatePresence>
             {photos.map((photo) => (
               <motion.div
                 key={photo.id}
                 initial={{ x: 0, y: 0, opacity: 0, scale: 0.8 }}
-                animate={isLoaded ? { 
-                  x: photo.x, 
-                  y: photo.y, 
-                  opacity: 1, 
-                  scale: 1 
+                animate={isLoaded ? {
+                  x: photo.x,
+                  y: photo.y,
+                  opacity: 1,
+                  scale: 1
                 } : {}}
-                transition={{ 
-                  type: "spring", 
-                  stiffness: 50, 
+                transition={{
+                  type: "spring",
+                  stiffness: 50,
                   damping: 15,
-                  delay: photo.order * 0.1 
+                  delay: photo.order * 0.1
                 }}
                 className="absolute"
                 style={{ zIndex: photo.zIndex }}
@@ -1247,10 +1295,10 @@ const FinalCTA = () => {
           transition={{ delay: 0.8 }}
           className="space-y-6"
         >
-          <button className="w-full py-6 bg-brand-gold hover:bg-brand-goldHover text-white rounded-[2rem] text-lg md:text-2xl font-black shadow-[0_20px_40px_-10px_rgba(244,197,66,0.4)] transition-all transform hover:scale-[1.03] active:scale-95 uppercase tracking-tighter px-8">
-            COMECE A ABENÇOAR SEU FILHO HOJE - R$ 37
-          </button>
-          
+          <Button href="#oferta" isCustom className="shadow-2xl shadow-[#27AE60]/40 animate-pulse-slow">
+            Comece a abençoar seu filho hoje!
+          </Button>
+
           <div className="flex items-center justify-center gap-6 text-[10px] font-bold uppercase tracking-widest text-gray-400">
             <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-green-500" /> Pagamento Seguro</span>
             <span className="flex items-center gap-1.5"><Zap className="w-4 h-4 text-brand-gold" /> Acesso Imediato</span>
@@ -1268,20 +1316,20 @@ const Footer = () => (
       <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-brand-blue/10 rounded-lg">
-             <Heart className="h-6 w-6 text-brand-blue fill-brand-blue" />
+            <Heart className="h-6 w-6 text-brand-blue fill-brand-blue" />
           </div>
           <span className="font-serif font-bold text-2xl text-brand-dark tracking-tight">Bênçãos Familiares</span>
         </div>
         <div className="flex flex-col md:flex-row gap-8 items-center">
-          <a href="mailto:contato@bencaosfamiliares.com.br" className="text-gray-500 hover:text-brand-blue transition-colors text-sm font-medium flex items-center gap-2">
-            <Mail size={16} /> Suporte: contato@bencaosfamiliares.com.br
+          <a href="mailto:bencaosfamiliares@gmail.com" className="text-gray-500 hover:text-brand-blue transition-colors text-sm font-medium flex items-center gap-2">
+            <Mail size={16} /> Suporte: bencaosfamiliares@gmail.com
           </a>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
-             <Lock size={16} /> Pagamento 100% seguro
+            <Lock size={16} /> Pagamento 100% seguro
           </div>
         </div>
       </div>
-      
+
       <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 font-medium">
         <p>© 2025 Bênçãos Familiares</p>
         <div className="flex gap-6">
@@ -1297,7 +1345,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-brand-dark overflow-x-hidden selection:bg-brand-blue/20">
       <ScrollProgress />
-      <Navbar />
+
       <Hero />
       <PainPoints />
       <Solution />

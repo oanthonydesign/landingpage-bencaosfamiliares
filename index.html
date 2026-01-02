@@ -1,94 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bênçãos Familiares - Altar Digital</title>
-    <meta name="description" content="Abençoe seus filhos todos os dias com o altar digital que cabe no seu bolso." />
-    
-    <!-- Fonts: Inter for UI/Body, Fraunces for Headings (Soft Serif) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Polyfill para garantir compatibilidade com bibliotecas que usam process.env (como Framer Motion)
-      window.process = { env: { NODE_ENV: 'production' } };
 
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                blue: '#4A90E2', // Serene Blue
-                blueLight: '#EBF5FF',
-                gold: '#F4C542', // Soft Gold
-                goldHover: '#E8B44D',
-                green: '#27AE60', // Hope Green
-                dark: '#2C3E50', // Dark Gray
-                text: '#333333',
-                bg: '#FAFAFA',
-                bgAlt: '#F5F7FA',
-              }
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Fraunces', 'serif'],
-            },
-            animation: {
-              'float': 'float 6s ease-in-out infinite',
-              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bênçãos Familiares - Altar Digital</title>
+  <meta name="description" content="Abençoe seus filhos todos os dias com o altar digital que cabe no seu bolso." />
+
+  <!-- Fonts: Inter for UI/Body, Fraunces for Headings (Soft Serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Polyfill para garantir compatibilidade com bibliotecas que usam process.env (como Framer Motion)
+    window.process = { env: { NODE_ENV: 'production' } };
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#4A90E2', // Serene Blue
+              blueLight: '#EBF5FF',
+              gold: '#F4C542', // Soft Gold
+              goldHover: '#E8B44D',
+              green: '#27AE60', // Hope Green
+              dark: '#2C3E50', // Dark Gray
+              text: '#333333',
+              bg: '#FAFAFA',
+              bgAlt: '#F5F7FA',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Fraunces', 'serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
             }
           }
         }
       }
-    </script>
-    <style>
-      /* Custom utility for clean scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
+    }
+  </script>
+  <style>
+    /* Custom utility for clean scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .perspective {
+      perspective: 1000px;
+    }
+
+    .rotate-y-12 {
+      transform: rotateY(12deg);
+    }
+
+    /* Expansão do fundo dourado no hover */
+    .btn-custom:hover .bg-expand {
+      width: calc(100% - 8px) !important;
+    }
+
+    /* Animação Shiny (Brilho Diagonal) */
+    @keyframes shiny {
+      0% {
+        transform: translateX(-150%) skewX(-25deg);
       }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
+
+      100% {
+        transform: translateX(250%) skewX(-25deg);
       }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8; 
-      }
-      
-      .perspective {
-        perspective: 1000px;
-      }
-      
-      .rotate-y-12 {
-        transform: rotateY(12deg);
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react/": "https://esm.sh/react@18.2.0/",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.344.0",
-    "framer-motion": "https://esm.sh/framer-motion@10.16.4?external=react,react-dom"
-  }
-}
-</script>
+    }
+
+    .shiny-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(to right,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent);
+      animation: shiny 3s infinite;
+      pointer-events: none;
+    }
+  </style>
+
 </head>
-  <body class="bg-[#FAFAFA] text-[#333333] antialiased">
-    <div id="root"></div>
-  </body>
+
+<body class="bg-[#FAFAFA] text-[#333333] antialiased">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
