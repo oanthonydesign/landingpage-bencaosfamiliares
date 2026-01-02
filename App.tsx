@@ -397,7 +397,7 @@ const Hero = () => {
         </div>
 
         {/* Visual Section with Floating Elements */}
-        <div className="relative w-full max-w-6xl mx-auto h-[500px] md:h-[550px] flex justify-center perspective overflow-hidden">
+        <div className="relative w-full max-w-[1400px] mx-auto h-[500px] md:h-[550px] flex justify-center perspective overflow-hidden">
 
           {/* Background Rings - Centered exactly at the bottom midpoint */}
           <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-brand-blue/10 rounded-full pointer-events-none bg-brand-blue/5 z-0"></div>
@@ -500,12 +500,7 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* Mobile Only: Simple Floating Label */}
-          <div className="md:hidden absolute top-10 right-4 z-30 animate-bounce">
-            <div className="bg-brand-gold text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
-              Oferta Vitalícia
-            </div>
-          </div>
+          {/* Mobile Only: Hidden */}
         </div>
 
       </div>
