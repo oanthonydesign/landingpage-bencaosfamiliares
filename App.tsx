@@ -162,25 +162,21 @@ const ScrollingMockup = ({ src, className = "" }: { src: string, className?: str
         {/* Scrolling Content */}
         <motion.div
           animate={{
-            y: ["0%", "-50%"]
+            y: ["0%", "-85%", "-85%"],
+            opacity: [1, 1, 0]
           }}
           transition={{
             duration: 25,
-            ease: "linear",
+            times: [0, 0.9, 1],
+            ease: "easeInOut",
             repeat: Infinity,
-            repeatType: "loop"
+            repeatDelay: 2
           }}
           className="w-full"
         >
           <img
             src={src}
             alt="App Interface"
-            className="w-full h-auto block"
-          />
-          {/* Duplicated image for seamless loop */}
-          <img
-            src={src}
-            alt="App Interface Duplicate"
             className="w-full h-auto block"
           />
         </motion.div>
