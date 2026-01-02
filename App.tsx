@@ -411,8 +411,14 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* Bible Image Card (Top Left) */}
-          <div className="hidden lg:block absolute top-20 left-[15%] xl:left-[22%] z-30 animate-float" style={{ animationDelay: '0s' }}>
+          {/* Bible Image Card (Top Left) - 100px from phone */}
+          <div
+            className="hidden lg:block absolute top-20 z-30 animate-float"
+            style={{
+              animationDelay: '0s',
+              right: 'calc(50% + 158px + 100px)'
+            }}
+          >
             <FadeIn delay={800}>
               <div className="w-[180px] drop-shadow-2xl transform -rotate-3">
                 <img src="/imagens/box_biblia.webp" alt="Bíblia" className="w-full h-auto" />
@@ -420,8 +426,14 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* +365 Blessings Card (Bottom Left) */}
-          <div className="hidden lg:block absolute bottom-12 left-[10%] xl:left-[15%] z-30 animate-float" style={{ animationDelay: '1s' }}>
+          {/* +365 Blessings Card (Bottom Left) - 230px from phone */}
+          <div
+            className="hidden lg:block absolute bottom-12 z-30 animate-float"
+            style={{
+              animationDelay: '1s',
+              right: 'calc(50% + 158px + 230px)'
+            }}
+          >
             <FadeIn delay={900}>
               <div className="w-[210px] drop-shadow-2xl transform rotate-2">
                 <img src="/imagens/box_365.webp" alt="+365 Bençãos" className="w-full h-auto" />
@@ -429,8 +441,14 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* Stars Card (Mid Left - with Blue Background) */}
-          <div className="hidden lg:block absolute bottom-[40%] left-[20%] xl:left-[25%] z-40 animate-float" style={{ animationDelay: '2s' }}>
+          {/* Stars Card (Mid Left) - 70px from phone */}
+          <div
+            className="hidden lg:block absolute bottom-[40%] z-40 animate-float"
+            style={{
+              animationDelay: '2s',
+              right: 'calc(50% + 158px + 70px)'
+            }}
+          >
             <FadeIn delay={1000}>
               <div className="bg-[#4A90E2] px-5 py-3 rounded-2xl shadow-xl border-2 border-white/20 flex gap-1 items-center shadow-blue-500/20 transform -rotate-1">
                 {[...Array(5)].map((_, i) => (
@@ -440,8 +458,14 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* 12 Days Streak Card (Top Right) */}
-          <div className="hidden lg:block absolute top-24 right-[15%] xl:right-[20%] z-30 animate-float" style={{ animationDelay: '0.5s' }}>
+          {/* 12 Days Streak Card (Top Right) - 100px from phone */}
+          <div
+            className="hidden lg:block absolute top-24 z-30 animate-float"
+            style={{
+              animationDelay: '0.5s',
+              left: 'calc(50% + 158px + 100px)'
+            }}
+          >
             <FadeIn delay={1100}>
               <div className="bg-white p-7 rounded-[2.5rem] shadow-2xl border border-gray-50 min-w-[200px] text-center transform rotate-2 hover:scale-105 transition-all duration-500">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orange-50 mb-3 shadow-inner">
@@ -453,8 +477,14 @@ const Hero = () => {
             </FadeIn>
           </div>
 
-          {/* Sacred Word Card (Bottom Right) */}
-          <div className="hidden lg:block absolute bottom-12 right-[12%] xl:right-[18%] z-30 animate-float" style={{ animationDelay: '1.5s' }}>
+          {/* Sacred Word Card (Bottom Right) - 170px from phone */}
+          <div
+            className="hidden lg:block absolute bottom-12 z-30 animate-float"
+            style={{
+              animationDelay: '1.5s',
+              left: 'calc(50% + 158px + 170px)'
+            }}
+          >
             <FadeIn delay={1200}>
               <div className="bg-[#EBF9EE] px-7 py-4 rounded-[2.5rem] shadow-2xl border border-green-50 flex flex-col items-center transform -rotate-2 hover:translate-y-[-5px] transition-all duration-500">
                 <div className="flex items-center gap-2 mb-2">
