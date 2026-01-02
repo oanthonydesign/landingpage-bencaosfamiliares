@@ -143,7 +143,7 @@ const StickyMobileCTA = () => {
 
   return (
     <div className="fixed bottom-0 left-0 w-full p-4 bg-white/95 backdrop-blur-lg border-t border-gray-100 md:hidden z-50 animate-slide-up shadow-[0_-5px_20px_rgba(0,0,0,0.1)]">
-      <Button href="#oferta" isCustom fullWidth className="">
+      <Button href="#oferta" isCustom hidePriceOnHover fullWidth className="">
         Quero abençoar meu filho hoje!
       </Button>
     </div>
@@ -245,6 +245,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   isCustom?: boolean;
+  hidePriceOnHover?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -255,6 +256,7 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   href,
   isCustom = false,
+  hidePriceOnHover = false,
   ...props
 }) => {
   const baseStyles = "inline-flex items-center justify-center rounded-lg font-bold transition-all duration-300 transform active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-offset-2";
@@ -288,21 +290,22 @@ const Button: React.FC<ButtonProps> = ({
             {children}
           </span>
         </div>
-
         {/* Camada Branca que Expande */}
         <div className="bg-expand absolute right-1 top-1 bottom-1 w-12 bg-white rounded-xl flex items-center justify-center transition-all duration-500 ease-in-out z-10">
 
           {/* Ícone de Seta para a Direita */}
-          <div className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-200 delay-300 group-hover:delay-0">
+          <div className={`absolute transition-opacity duration-200 ${hidePriceOnHover ? 'opacity-100 group-hover:opacity-100' : 'opacity-100 group-hover:opacity-0 delay-300 group-hover:delay-0'}`}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#27AE60]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </div>
 
           {/* Preço no Hover */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:delay-300 delay-0">
-            <span className="text-[#27AE60] font-bold text-lg whitespace-nowrap">R$ 37,00</span>
-          </div>
+          {!hidePriceOnHover && (
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:delay-300 delay-0">
+              <span className="text-[#27AE60] font-bold text-lg whitespace-nowrap">R$ 37,00</span>
+            </div>
+          )}
         </div>
       </>
     );
@@ -435,7 +438,7 @@ const Hero = () => {
           </FadeIn>
 
           <FadeIn delay={400} className="mt-12">
-            <Button href="#oferta" isCustom className="shadow-2xl shadow-[#27AE60]/40 animate-pulse-slow">
+            <Button href="#oferta" isCustom hidePriceOnHover className="shadow-2xl shadow-[#27AE60]/40 animate-pulse-slow">
               Comece a abençoar seu filho hoje!
             </Button>
           </FadeIn>
@@ -1026,7 +1029,7 @@ const Offer = () => {
               ))}
             </div>
 
-            <Button href="#oferta" isCustom fullWidth className="shadow-xl shadow-[#27AE60]/30 animate-pulse-slow mb-6">
+            <Button href="https://pay.cakto.com.br/3e2apif_659390" isCustom fullWidth className="shadow-xl shadow-[#27AE60]/30 animate-pulse-slow mb-6">
               Sim, eu quero abençoar meus filhos!
             </Button>
 
