@@ -151,7 +151,7 @@ const StickyMobileCTA = () => {
 };
 
 // Mockup of the App Phone Screen
-const ScrollingMockup = ({ src, className = "" }: { src: string, className?: string }) => {
+const ScrollingMockup = ({ src, className = "", priority = false }: { src: string, className?: string, priority?: boolean }) => {
   return (
     <div className={`relative mx-auto border-gray-900 bg-gray-900 border-[8px] rounded-[3rem] h-[580px] w-[300px] shadow-2xl flex flex-col overflow-hidden transform transition-transform duration-700 hover:scale-[1.01] ${className}`}>
       {/* Dynamic Island / Notch */}
@@ -176,6 +176,7 @@ const ScrollingMockup = ({ src, className = "" }: { src: string, className?: str
             src={src}
             alt="App Interface"
             className="w-full h-auto block"
+            {...(priority ? { fetchPriority: "high" } : {})}
           />
           {/* Duplicated image for seamless loop */}
           <img
@@ -407,7 +408,7 @@ const Hero = () => {
           {/* Centered Phone (Cutoff at bottom) */}
           <div className="relative z-20 transform translate-y-24">
             <FadeIn delay={600}>
-              <ScrollingMockup src="/imagens/img_home.webp" className="shadow-2xl shadow-brand-blue/20" />
+              <ScrollingMockup src="/imagens/img_home.webp" className="shadow-2xl shadow-brand-blue/20" priority={true} />
             </FadeIn>
           </div>
 
