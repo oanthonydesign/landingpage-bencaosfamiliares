@@ -374,19 +374,19 @@ const Hero = () => {
         <div className="text-center max-w-4xl mb-16 relative z-20">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-brand-dark tracking-tight mb-8 leading-[1.1] drop-shadow-sm">
-              Você sabia que 2 minutos por dia podem mudar o <br className="hidden lg:block" />
+              Você precisa de apenas 2 minutos por dia para mudar o <br className="hidden lg:block" />
               <span className="text-brand-blue relative inline-block">
                 destino espiritual
                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-gold opacity-40" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                 </svg>
-              </span> do seu filho?
+              </span> do seu filho.
             </h1>
           </FadeIn>
 
           <FadeIn delay={200}>
             <p className="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
-              Abençoe seus filhos todos os dias com o altar digital e deixe uma herança que nem o mundo, nem o tempo podem roubar do seu filho.
+              Abençoe seus filhos todos os dias com o altar digital, uma plataforma completa para você criar um lar onde a presença de Deus é sentida e deixar uma herança que nem o mundo, nem o tempo podem roubar do seu filho.
             </p>
           </FadeIn>
 
